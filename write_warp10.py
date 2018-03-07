@@ -183,6 +183,9 @@ class WriteWarp10(object):
                             next_round = True
                         elif flag.startswith('T:'):
                             lbl_name, lbl_value = flag[2:].split('=', 1)
+                            for ma in re.findall(r'(\\[0-9]+)', lbl_name):
+                                v = matches.group(int(ma[1:]))
+                                lbl_name = lbl_name.replace(ma, v)
                             for ma in re.findall(r'(\\[0-9]+)', lbl_value):
                                 v = matches.group(int(ma[1:]))
                                 lbl_value = lbl_value.replace(ma, v)
