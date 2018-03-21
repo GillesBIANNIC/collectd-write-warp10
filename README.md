@@ -22,7 +22,15 @@ You can format your metrics as you wish with regexs. See bellow ...
 ## Configuration
   
 Write_warp10 module has to be imported with the Python module.  
+To do that, add a config file like '10-python.conf' in the collectd config directory to load the python plugin:  
+Config in 10-python.conf:  
+```
+<LoadPlugin python>
+  Globals true
+</LoadPlugin>
+```
   
+Then add a config file 'python-config.conf' with your config:  
 Simple config example:
 ```
 <Plugin "python">
